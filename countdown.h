@@ -9,17 +9,12 @@
 /// @date   09_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-const int refrenceYear = 2011;
-const int refrenceMonth = 5;
-const int refrenceDayOfMonth = 4;
-const int refrenceHour = 4;
-const int refrenceMinute = 0;
-const int refrenceSecond = 0;
+const int referenceYear = 2011;
+const int referenceMonth = 5;
+const int referenceDayOfMonth = 4;
+const int referenceHour = 4;
+const int referenceMinute = 0;
+const int referenceSecond = 0;
 const int isDaylightSavings = -1;
 
 const int hstOffset = 10;
-
-struct tm refrenceTime;
-
-
-

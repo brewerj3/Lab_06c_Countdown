@@ -16,33 +16,33 @@
 
 #include "countdown.h"
 
-time_t secondsSinceRefrence(time_t secondsFromEpochToRefrence){
+time_t secondsSinceReference(time_t secondsFromEpochToReference){
     time_t currentSecondsSinceEpoch = time(NULL);
     time_t diffrenceInSeconds;
-    diffrenceInSeconds = difftime( currentSecondsSinceEpoch, secondsFromEpochToRefrence );
+    diffrenceInSeconds = difftime( currentSecondsSinceEpoch, secondsFromEpochToReference );
     return diffrenceInSeconds;
 }
 
 int main() {
     char buffer[80];
-    struct tm refrenceTime;
+    struct tm referenceTime;
 
-    refrenceTime.tm_year = refrenceYear-1900;
-    refrenceTime.tm_mon = refrenceMonth - 1;
-    refrenceTime.tm_mday = refrenceDayOfMonth;
-    refrenceTime.tm_hour = refrenceHour - hstOffset;
-    refrenceTime.tm_min = refrenceMinute;
-    refrenceTime.tm_sec = refrenceSecond;
-    refrenceTime.tm_isdst = -1;
+    referenceTime.tm_year = referenceYear - 1900;
+    referenceTime.tm_mon = referenceMonth - 1;
+    referenceTime.tm_mday = referenceDayOfMonth;
+    referenceTime.tm_hour = referenceHour - hstOffset;
+    referenceTime.tm_min = referenceMinute;
+    referenceTime.tm_sec = referenceSecond;
+    referenceTime.tm_isdst = -1;
 
-    int secondsFromEpochToRefrence = mktime( &refrenceTime);
+    int secondsFromEpochToReference = mktime( &referenceTime);
     char *timeZone[4] = {"HST"};
 
-    strftime(buffer, sizeof(buffer), "%a %b %d %X %p", &refrenceTime);
-    printf("Refrence time: %s %s %d \n", buffer, timeZone[0], refrenceYear);
+    strftime(buffer, sizeof(buffer), "%a %b %d %X %p", &referenceTime);
+    printf("Reference time: %s %s %d \n", buffer, timeZone[0], referenceYear);
 
     while ( true ){
-        time_t diffrence = secondsSinceRefrence( secondsFromEpochToRefrence );
+        time_t diffrence = secondsSinceReference( secondsFromEpochToReference );
         int years = ( diffrence / 31557600 );
         int days = ( ( diffrence % 31557600 ) / 86400 );
         int hours = ( ( diffrence % 86400 ) / 3600 );
