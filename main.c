@@ -19,12 +19,7 @@
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "EndlessLoop"
-time_t secondsSinceReference(time_t secondsFromEpochToReference){
-    time_t currentSecondsSinceEpoch = time(NULL);
-    time_t differenceInSeconds;
-    differenceInSeconds = difftime( currentSecondsSinceEpoch, secondsFromEpochToReference );
-    return differenceInSeconds;
-}
+
 
 int main() {
     char buffer[80];

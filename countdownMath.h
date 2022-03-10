@@ -11,6 +11,8 @@
 
 #pragma once
 
+extern long secondsSinceReference( long secondsFromEpochToReference );
+
 extern long getDifferenceInYears( long difference);
 extern long getDifferenceInDays( long difference );
 extern long getDifferenceInHours( long difference );

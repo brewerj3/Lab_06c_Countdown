@@ -9,7 +9,16 @@
 /// @date   09_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <time.h>
+
 #include "countdownMath.h"
+
+long secondsSinceReference( long secondsFromEpochToReference){
+    long currentSecondsSinceEpoch = time(NULL);
+    long differenceInSeconds;
+    differenceInSeconds = ( currentSecondsSinceEpoch - secondsFromEpochToReference );
+    return differenceInSeconds;
+}
 
 long getDifferenceInYears( long difference) {
     return ( difference / 31557600 );
