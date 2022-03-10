@@ -2,7 +2,7 @@
 ///         University of Hawaii, College of Engineering
 /// @brief  Lab_06c_Countdown - EE 205 - Spr 2022
 ///
-/// @file countdown.h
+/// @file countdownMath.h
 /// @version 1.0
 ///
 /// @author Joshua Brewer <brewerj3@hawaii.edu>
@@ -11,14 +11,8 @@
 
 #pragma once
 
-const int referenceYear = 2011;
-const int referenceMonth = 5;
-const int referenceDayOfMonth = 4;
-const int referenceHour = 4;
-const int referenceMinute = 0;
-const int referenceSecond = 0;
-const int isDaylightSavings = -1;
-
-const int hstOffset = 10;
-
-
+extern long getDifferenceInYears( long difference);
+extern long getDifferenceInDays( long difference );
+extern long getDifferenceInHours( long difference );
+extern long getDifferenceInMinutes( long difference );
+extern long getDifferenceInSeconds( long difference );

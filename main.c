@@ -15,12 +15,15 @@
 #include <unistd.h>
 
 #include "countdown.h"
+#include "countdownMath.h"
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "EndlessLoop"
 time_t secondsSinceReference(time_t secondsFromEpochToReference){
     time_t currentSecondsSinceEpoch = time(NULL);
-    time_t diffrenceInSeconds;
-    diffrenceInSeconds = difftime( currentSecondsSinceEpoch, secondsFromEpochToReference );
-    return diffrenceInSeconds;
+    time_t differenceInSeconds;
+    differenceInSeconds = difftime( currentSecondsSinceEpoch, secondsFromEpochToReference );
+    return differenceInSeconds;
 }
 
 int main() {
@@ -42,15 +45,12 @@ int main() {
     printf("Reference time: %s %s %d \n", buffer, timeZone[0], referenceYear);
 
     while ( true ){
-        time_t diffrence = secondsSinceReference( secondsFromEpochToReference );
-        int years = ( diffrence / 31557600 );
-        int days = ( ( diffrence % 31557600 ) / 86400 );
-        int hours = ( ( diffrence % 86400 ) / 3600 );
-        int minutes = ( ( diffrence % 3600 ) / 60 );
-        int seconds = ( diffrence % 60 );
-        printf("Years :%d Days: %d  Hours: %d Minutes: %d   Seconds: %d \n", years, days, hours, minutes, seconds);
+        time_t difference = secondsSinceReference( secondsFromEpochToReference );
+        printf("Years :%ld Days: %ld  Hours: %ld Minutes: %ld   Seconds: %ld \n", getDifferenceInYears( difference ), getDifferenceInDays( difference ), getDifferenceInHours( difference ), getDifferenceInMinutes( difference ), getDifferenceInSeconds( difference ));
         sleep(1);
     }
 
     return 0;
 }
+
+#pragma clang diagnostic pop
